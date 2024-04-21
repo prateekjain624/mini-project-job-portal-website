@@ -1,0 +1,140 @@
+<div class="form-container">
+  <h2>Update Job</h2>
+  <form action="/update-job" method="post">
+    <input
+      type="hidden"
+      class="form-control"
+      id="id"
+      name="id"
+      value="<%= job.id %>"
+    />
+    <select
+      name="job_category"
+      class="form-select"
+      aria-label="Default select example"
+      id="Select"
+    >
+      <option selected>Select Job category</option>
+      <option value="Tech">Tech</option>
+      <option value="Non Tech">Non Tech</option>
+    </select>
+    <select
+      name="job_designation"
+      class="form-select"
+      aria-label="Default select example"
+      id="mySelect"
+    >
+      <option selected>Select Job Designation</option>
+      <option value="HR">HR</option>
+      <option value="SDE">SDE</option>
+      <option value="DevOps">DevOps</option>
+      <option value="Mern-Developer">Mern Developer</option>
+      <option value="Mean-Developer">Mean Developer</option>
+      <option value="Java-Developer">Java Developer</option>
+      <option value="Front-End-Developer">Front-End Developer</option>
+      <option value="Back-End-Developer">Back-End Developer</option>
+      <option value="Full-Stack-Developer">Full-Stack Developer</option>
+    </select>
+    <div class="mb-3">
+      <label for="basic-url" class="form-label">Enter Job Location</label>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          id="basic-url"
+          aria-describedby="basic-addon3 basic-addon4"
+          name="job_location"
+          value="<%= job.joblocation %>"
+        />
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Company name</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+        name="company_name"
+        value="<%= job.companyname %>"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <input
+        type="number"
+        name="salary"
+        class="form-control"
+        placeholder="enter salary"
+        value="<%= job.salary %>"
+      />
+      <span class="input-group-text">Total Positions</span>
+      <input
+        type="number"
+        name="Numberofposition"
+        class="form-control"
+        placeholder="0"
+        value="<%= job.numberofopenings %>"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <select
+        required
+        multiple
+        name="skills_required"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option selected="" disabled="">
+          select skills required for this job
+        </option>
+        <option value="React">React</option>
+        <option value="NodeJs">NodeJs</option>
+        <option value="Angular">Angular</option>
+        <option value="MongoDB">MongoDB</option>
+        <option value="SQL">SQL</option>
+        <option value="Express">Express</option>
+        <option value="Java">Java</option>
+        <option value="SpringBoot">SpringBoot</option>
+        <option value="C++">C++</option>
+        <option value="Data Structures &amp; Algo">
+          Data Structures &amp; Algo
+        </option>
+      </select>
+      <span class="input-group-text">Apply by</span>
+      <input
+        type="date"
+        name="applyby"
+        class="form-control"
+        placeholder="0"
+        value="<%= job.applying %>"
+      />
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-success" type="submit">updatejob</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  var selectElement = document.getElementById("mySelect");
+  var selectElement1 = document.getElementById("Select");
+  var selectElement2 = document.getElementById("skills");
+
+  var optionWithValue2 = selectElement.querySelector(
+    'option[value="<%= job.jobdesignation %>"]'
+  );
+
+  var optionWithValue3 = selectElement1.querySelector(
+    'option[value="<%= job.jobcategory %>"]'
+  );
+
+  var optionWithValue4 = selectElement2.querySelector(
+    'option[value="<%= job.skillsrequired %>"]'
+  );
+
+  optionWithValue2.selected = true;
+  optionWithValue3.selected = true;
+  optionWithValue4.selected = true;
+</script>
